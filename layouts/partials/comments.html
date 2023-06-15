@@ -1,0 +1,39 @@
+{{- $.Scratch.Set "isComments" true -}}
+{{- $.Scratch.Set "isDisqus" true -}}
+{{- $.Scratch.Set "isGiscus" true -}}
+
+{{ if  eq .Params.commentsApp "disqus" }}
+{{- $.Scratch.Set "isDisqus" true -}}
+{{- $.Scratch.Set "isGiscus" false -}}
+{{ else }}
+{{- $.Scratch.Set "isDisqus" false -}}
+{{- $.Scratch.Set "isGiscus" true -}}
+{{ end }}
+
+<!-- Disable if content type is excluded in config -->
+{{- if and (isset .Params "type") (in .Site.Params.disableCommentsTypes .Params.type) -}}
+{{- $.Scratch.Set "isComments" false -}}
+{{- end -}}
+
+<!-- Check if content has flag to enable/disable disqus explicitly -->
+{{- if and (isset .Params "comments") (eq .Params.comments false) -}}
+{{- $.Scratch.Set "isComments" false -}}
+{{- else if and (isset .Params "comments") (eq .Params.comments true) -}}
+{{- $.Scratch.Set "isComments" true -}}
+{{- end -}}
+
+<!-- Check if disqus short name is given -->
+{{ if not .Site.DisqusShortname }}
+{{- $.Scratch.Set "isDisqus" false -}}
+{{ end }}
+
+{{- if eq ($.Scratch.Get "isComments") false -}}
+{{- $.Scratch.Set "isDisqus" false -}}
+{{- $.Scratch.Set "isGiscus" false -}}
+{{ end }}
+
+{{- if eq ($.Scratch.Get "isDisqus") true -}}
+{{- partial "disqus.html" . -}}
+{{- else if eq ($.Scratch.Get "isGiscus") true -}}
+{{- partial "giscus.html" . -}}
+{{- end -}}

@@ -1,0 +1,22 @@
+<div id = "giscus">
+  <script src                    = "https://giscus.app/client.js"
+          data-repo              = "{{ .Site.Params.giscus.repo }}"
+          data-repo-id           = "{{ .Site.Params.giscus.repoId }}"
+          data-category          = "{{ .Site.Params.giscus.category }}"
+          data-category-id       = "{{ .Site.Params.giscus.categoryId }}"
+          data-mapping           = "{{ .Site.Params.giscus.mapping }}"
+          data-strict            = "{{ .Site.Params.giscus.strict }}"
+          data-reactions-enabled = "{{ .Site.Params.giscus.restrictionsEnabled }}"
+          data-emit-metadata     = "{{ .Site.Params.giscus.emitMetadata }}"
+          data-input-position    = "{{ .Site.Params.giscus.inputPosition }}"
+          data-theme             = "{{ .Site.Params.giscus.theme }}"
+          data-lang              = "{{ .Site.Params.giscus.lang }}"
+          data-loading           = "{{ .Site.Params.giscus.loading }}"
+          crossorigin            = "{{ .Site.Params.giscus.crossorigin }}"
+          async>
+  </script>
+
+  <noscript>Please enable JavaScript to view the <a href="https://giscus.app?ref_noscript">comments powered by
+      Giscus.</a></noscript>
+
+</div>

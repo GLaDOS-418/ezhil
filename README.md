@@ -20,6 +20,7 @@ Clean and minimal personal blog and portfolio theme for Hugo.
 * Syntax highlighting
 * Twitter cards and opengraph tags support
 * Disqus comments
+* Giscus comments
 * Hugo RSS feeds
 * Custom CSS/JS
 
@@ -68,7 +69,8 @@ summaryLength = 20
     mainSections = ["posts"]
 
     # Content types which are excludes Disqus comments.
-    disableDisqusTypes = ["page"]
+    disableCommentsTypes = ["page"]
+    commentsApp = "giscus"
 
     # If social media links are enabled then enable this to fetch icons from CDN instead of hosted on your site.
     featherIconsCDN = true
@@ -128,11 +130,28 @@ url = "https://twitter.com/gohugoio"
 # Enable tags.
 [taxonomies]
    tag = "tags"
+
+# giscus config. visit https://giscus.app/ for more details 
+# fill the configuration form and use values below
+[giscus]
+  repo="user/repo"
+  repoId="repoid"
+  category="Announcements"
+  categoryId="DIC_kwDOCjJtEM4CXPX4"
+  mapping="pathname"
+  strict="1"
+  reactionsInabled="1"
+  emitMetadata="0"
+  inputPosition="top"
+  theme="light_high_contrast"
+  lang="en"
+  loading="lazy"
+  crossorigin="anonymous"
 ```
 
 ## Content type
 
-You can specify content type with field `type` in your content. For example static pages can be set as type `page` which are excluded from recent posts and all posts page. You can use site params `mainSections` and `disableDisqusTypes` to control which page types are excluded from recent posts and Disqus comments respectively.
+You can specify content type with field `type` in your content. For example static pages can be set as type `page` which are excluded from recent posts and all posts page. You can use site params `mainSections` and `disableCommentsTypes` to control which page types are excluded from recent posts and Disqus comments respectively.
 
 ```md
 ---
@@ -144,21 +163,23 @@ type: "page"
 This is some static page where you can write about yourself.
 ```
 
-## Disable Disqus
+## Disable Comments
 
-You can disable Disqus site wide if you don't set `DisqusShortname` param in config. You can also disable Disqus from contents selectively or for all contents with certain content type. Use content field `disqus` to disable Disqus from certain contents.
+You can disable Disqus site wide if you don't set `DisqusShortname` param in config.
+
+You can also disable all comments (disqus/giscus) from contents selectively or for all contents with certain content type. Use content field `comments` to disable Disqus from certain contents.
 
 ```md
 ---
 title: "Content without comments"
 date: 2019-04-19T21:37:58+05:30
-disqus: false
+comments: false
 ---
 
-This is a content without Disqus comments.
+This is a content without comments.
 ```
 
-You can also disable Disqus for certain content types by using site param `disableDisqusTypes`. You can check config section above for example.
+You can also disable comments for certain content types by using site param `disableCommentsTypes`. You can check config section above for example.
 
 ## Credits
 
