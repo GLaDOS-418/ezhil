@@ -1,4 +1,21 @@
-<div id = "giscus">
+{{- $.Scratch.Set "theme" "" -}}
+
+{{- if .Site.Params.giscus.customTheme -}}
+  {{ $baseURL := .Site.BaseURL }}
+  {{ $path := "/css/" }}
+  {{ $cssFileName := .Site.Params.giscus.customTheme }}
+  {{ $fullURL := printf "%s%s%s" $baseURL $path  $cssFileName }}
+
+  {{- $.Scratch.Set "theme"  $fullURL -}}
+{{- else if .Site.Params.giscus.theme -}}
+  {{- $.Scratch.Set "theme" .Site.Params.giscus.theme -}}
+{{- else -}}
+  {{- $.Scratch.Set "theme" "dark" -}}
+{{- end -}}
+
+{{- $theme := $.Scratch.Get "theme" }}
+
+<div class="giscus">
   <script src                    = "https://giscus.app/client.js"
           data-repo              = "{{ .Site.Params.giscus.repo }}"
           data-repo-id           = "{{ .Site.Params.giscus.repoId }}"
@@ -9,14 +26,13 @@
           data-reactions-enabled = "{{ .Site.Params.giscus.restrictionsEnabled }}"
           data-emit-metadata     = "{{ .Site.Params.giscus.emitMetadata }}"
           data-input-position    = "{{ .Site.Params.giscus.inputPosition }}"
-          data-theme             = "{{ .Site.Params.giscus.theme }}"
+          data-theme             = "{{ $theme }}"
           data-lang              = "{{ .Site.Params.giscus.lang }}"
           data-loading           = "{{ .Site.Params.giscus.loading }}"
           crossorigin            = "{{ .Site.Params.giscus.crossorigin }}"
           async>
   </script>
 
-  <noscript>please enable javascript to view the <a href="https://giscus.app?ref_noscript">comments powered by
-      giscus.</a></noscript>
+  <noscript>please enable javascript to view the comments powered by <a href="https://giscus.app?ref_noscript">giscus</a></noscript>
 
 </div>
