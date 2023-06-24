@@ -23,6 +23,8 @@ Clean and minimal personal blog and portfolio theme for Hugo.
 * Giscus comments
 * Hugo RSS feeds
 * Custom CSS/JS
+* Social media sharing buttons
+* Default `og:image` and `twitter:image` values.
 
 ## Installation
 
@@ -94,6 +96,9 @@ summaryLength = 20
     # for example you may want to include external JS library.
     customJS = ["js/abc.js", "js/xyz.js", "https://code.jquery.com/jquery-3.4.1.js"]
 
+    # default value for og:image and twitter:image attributes of meta tags
+    featureImage = "/images/feature.jpg"
+    
 # Main menu which appears below site header.
 [[menu.main]]
 name = "Home"
@@ -181,6 +186,27 @@ This is a content without comments.
 ```
 
 You can also disable comments for certain content types by using site param `disableCommentsTypes`. You can check config section above for example.
+
+## Social Media Sharing Buttons
+check this repo for more information
+https://github.com/Stals/hugo-share-buttons
+
+## default `og:image` and `twitter:image` attributes for `<meta>` tags
+If no `ogImage` or `twitterImage` tag is defined, the values fallback to the `featureImage` param from `config.toml`.
+
+## Sample front-matter of a page
+``` md
+---
+title: "page title"
+description: "page description which also shows up as a short not on index page"
+date: 2021-04-19T17:18:54+05:30
+tags: [tag-1,tag-2]
+ogImage: '/path/to/image/for/og_graph_image.jpg'
+twitterImage: '/path/to/image/for/twitter_image.jpg'
+draft: false
+socialshare: true
+---
+```
 
 ## Credits
 
