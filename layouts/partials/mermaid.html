@@ -1,0 +1,39 @@
+{{ if .Page.Store.Get "hasMermaid" }}
+<script src="https://bumbu.me/svg-pan-zoom/dist/svg-pan-zoom.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      let config = { startOnLoad: false,
+                    theme: 'forest',
+                    flowchart: { useMaxWidth: false, htmlLabels: true }
+                   };
+      mermaid.initialize(config);
+
+      const drawDiagram = async function () {
+        const mermaidElements = document.querySelectorAll('.mermaid');
+
+        mermaidElements.forEach(async (element, index) => {
+          const graphDefinition = element.textContent;
+          const svgId = `mermaid-rendered-svg-${index}`;
+
+          // Render the Mermaid diagram and get the SVG
+          const { svg } = await mermaid.render(svgId, graphDefinition);
+
+          // Update the element's innerHTML with the rendered SVG
+          element.innerHTML = svg.replace(/[ ]*max-width:[ 0-9\.]*px;/i, '');
+
+          // Apply svg-pan-zoom to the rendered SVG with the specific ID
+          const panZoom = svgPanZoom(`#${svgId}`, {
+            panEnabled: true,
+            zoomEnabled: true,
+            controlIconsEnabled: true,
+            zoomScaleSensitivity: 0.4,
+            fit: true,
+            center: true,
+            contain: true
+          });
+        });
+      };
+
+      await drawDiagram();
+</script>
+{{ end }}

@@ -25,6 +25,8 @@ Clean and minimal personal blog and portfolio theme for Hugo.
 * Custom CSS/JS
 * Social media sharing buttons
 * Default `og:image` and `twitter:image` values.
+* MermaidJS support
+* `pan-and-zoom` SVG generated from MermaidJS
 
 ## Installation
 
@@ -207,6 +209,31 @@ draft: false
 socialshare: true
 ---
 ```
+
+## SVG diagrams using MermaidJS
+draw SVG diagrams using [MermaidJS]( https://mermaid.js.org/). Theme used is *'forest'*.
+You can draw as many diagram as possible.
+
+Pan-and-Zoom of these diagrams is enabled via [bumbu/svg-pan-zoom]( https://github.com/bumbu/svg-pan-zoom ),
+since these features are neither supported by Hugo nor by MermaidJS ([#1860](https://github.com/mermaid-js/mermaid/issues/1860)).
+
+Above two scripts are loaded only when there's at least one `mermaid` diagram.
+
+Here's a sample diagram:
+
+```
+\```mermaid
+---
+title: Simple sample
+---
+stateDiagram-v2
+    [*] --> Still
+\```
+```
+
+Here's how the above will look:
+
+![mermaidjs-stateDiagram-screenshot](images/screenshot-mermaidjs-stateDiagram.png "sample mermaidjs statediagram")
 
 ## Credits
 
