@@ -1,4 +1,4 @@
-# Ezhil
+# EzhilPP
 
 Clean and minimal personal blog and portfolio theme for Hugo.
 
@@ -20,9 +20,9 @@ Clean and minimal personal blog and portfolio theme for Hugo.
 * Syntax highlighting
 * Twitter cards and opengraph tags support
 * Disqus comments
-* Giscus comments
 * Hugo RSS feeds
 * Custom CSS/JS
+* Giscus comments
 * Social media sharing buttons
 * Default `og:image` and `twitter:image` values.
 * MermaidJS support
@@ -34,7 +34,7 @@ From your Hugo site run the following.
 
 ```sh
 cd themes
-git clone https://github.com/vividvilla/ezhil.git
+git clone https://github.com/GLaDOS-418/ezhilpp.git
 ```
 
 For more information read the [official setup guide](https://gohugo.io/overview/installing/) of Hugo.
@@ -56,7 +56,7 @@ pygmentscodefencesguesssyntax = true
 
 # Your Google analytics code.
 googleAnalytics = "UA-123-45"
-# Your Disqus sortname.
+# Your Disqus shortname.
 disqusShortname = "localhost"
 
 # Number of posts to show in recent posts list (Optional). Defaults to 10.
@@ -67,7 +67,7 @@ summaryLength = 20
 
 [params]
     # Blog subtitle which appears below blog title. Supports markdown.
-    subtitle = "Clean and minimal personal [blog theme for Hugo](https://github.com/vividvilla/ezhil)"
+    subtitle = "Clean and minimal personal [blog theme for Hugo](https://github.com/GLaDOS-418/ezhilpp.git)"
 
     # Content types which are included in home page recent posts list.
     mainSections = ["posts"]
@@ -127,7 +127,7 @@ weight = 4
 [[params.social]]
 name = "Github"
 icon = "github"
-url = "https://github.com/vividvilla/ezhil"
+url = "https://github.com/GLaDOS-418/ezhilpp.git"
 
 [[params.social]]
 name = "Twitter"
@@ -175,7 +175,7 @@ This is some static page where you can write about yourself.
 
 You can disable Disqus site wide if you don't set `DisqusShortname` param in config.
 
-You can also disable all comments (disqus/giscus) from contents selectively or for all contents with certain content type. Use content field `comments` to disable Disqus from certain contents.
+You can also disable comments (disqus/giscus) from contents selectively or for all contents with certain content type. Use content field `comments` to disable comments from certain contents.
 
 ```md
 ---
@@ -195,6 +195,8 @@ https://github.com/Stals/hugo-share-buttons
 
 ## default `og:image` and `twitter:image` attributes for `<meta>` tags
 If no `ogImage` or `twitterImage` tag is defined, the values fallback to the `featureImage` param from `config.toml`.
+
+read [this](https://www.freecodecamp.org/news/what-is-open-graph-and-how-can-i-use-it-for-my-website/) for more information on `og:image`.
 
 ## Sample front-matter of a page
 ``` md
