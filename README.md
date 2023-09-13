@@ -222,13 +222,12 @@ Above two scripts are loaded only when there's at least one `mermaid` diagram.
 Here's a sample diagram:
 
 ```
-\```mermaid
+mermaid
 ---
 title: Simple sample
 ---
 stateDiagram-v2
     [*] --> Still
-\```
 ```
 
 Here's how the above will look:
@@ -237,5 +236,9 @@ Here's how the above will look:
 
 ## Credits
 
-* [Feather Icons](https://feathericons.com/)
+* [Feather Icons](https://feathericons.com/) - for icons
 * [Zen habits](https://zenhabits.net/) for demo content
+* [giscus]( https://giscus.app/ ) - for comments
+* [MermaidJS]( https://mermaid.js.org/) - for diagrams
+* [Stals/hugo-share-buttons]( https://github.com/Stals/hugo-share-buttons ) - for social media share buttons
+* [bumbu/svg-pan-zoom]( https://github.com/bumbu/svg-pan-zoom ) - for pan-and-zoom of mermaidjs diagrams
