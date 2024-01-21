@@ -1,4 +1,1 @@
-<p class="md_image">
-  <img src="/{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
-</p>
-
+<img src="/{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
