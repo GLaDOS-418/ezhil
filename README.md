@@ -212,6 +212,16 @@ socialshare: true
 ---
 ```
 
+## Shortcodes
+
+- use `{{< toc >}}` anywhere in the markdown to render table of contents like:
+```
+# Outline
+- header 1
+    - inner header 1
+- header 2
+```
+
 ## SVG diagrams using MermaidJS
 draw SVG diagrams using [MermaidJS]( https://mermaid.js.org/). Theme used is *'forest'*.
 You can draw as many diagram as possible.
