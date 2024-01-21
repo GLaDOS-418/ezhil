@@ -246,6 +246,13 @@ Here's how the above will look:
 
 ![mermaidjs-stateDiagram-screenshot](images/screenshot-mermaidjs-stateDiagram.png "sample mermaidjs statediagram")
 
+## NOTE
+- `<base>` tag is removed to fix the jump anchor links. see this issue: [#urls doesn&#39;t work with base href · Issue #811 · gohugoio/hugo · GitHub]( https://github.com/gohugoio/hugo/issues/811 )
+- removing `<base>` breaks the image links so, `render-image` hook is added to canonicalise the image link and fix the above issue.
+
+## TODO
+- similar to `render-image` hook, a `render-link` might also be required. study the impact of removing `<base>` tag.
+
 ## Credits
 
 * [Feather Icons](https://feathericons.com/) - for icons
